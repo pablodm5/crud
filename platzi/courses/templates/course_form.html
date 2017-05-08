@@ -1,0 +1,90 @@
+{% extends 'adminlte/base.html' %}
+{% load adminlte_helpers %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block styles %}
+{% endblock %}
+{% block content_block_wrap %}
+{% block content %}
+<form enctype="multipart/form-data" method="post">
+  <div class="col-md-5">
+    {% csrf_token %}
+    <label for="">Nombre de curso</label>{{ form.name  }}
+        <div class="form-group">
+          <label for="">Fecha de ingreso</label>
+           <div class="input-group date">
+              <div class="input-group-addon">
+                 <i class="fa fa-calendar"></i>
+              </div>
+              {{ form.start_date  }}
+           </div>
+           <!-- /.input group -->
+        </div>
+
+        <div class="form-group">
+          <label for="">Fecha de termino</label>
+           <div class="input-group date">
+              <div class="input-group-addon">
+                 <i class="fa fa-calendar"></i>
+              </div>
+              {{ form.end_date  }}
+           </div>
+           <!-- /.input group -->
+        </div>
+
+        <div class="form-group">
+          <label for="">Imagen</label>
+              {{ form.picture  }}
+           <!-- /.input group -->
+        </div>
+
+
+    <input type="submit" value="Submit" />
+  </div>
+
+</form>
+{% endblock %}
+{% block sidebar %}{% endblock %}
+{% endblock %}
+
+
+{% block javascript %}
+{% include 'adminlte/lib/_scripts.html' %}
+<script>
+  $(function () {
+
+    
+
+    //Date picker
+    $('.datepicker').datepicker({
+      autoclose: true
+    });
+
+    //iCheck for checkbox and radio inputs
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass: 'iradio_minimal-blue'
+    });
+    //Red color scheme for iCheck
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+      checkboxClass: 'icheckbox_minimal-red',
+      radioClass: 'iradio_minimal-red'
+    });
+    //Flat red color scheme for iCheck
+    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+      checkboxClass: 'icheckbox_flat-green',
+      radioClass: 'iradio_flat-green'
+    });
+
+    //Colorpicker
+    $(".my-colorpicker1").colorpicker();
+    //color picker with addon
+    $(".my-colorpicker2").colorpicker();
+
+    //Timepicker
+    $(".timepicker").timepicker({
+      showInputs: false
+    });
+  });
+</script>
+{% endblock %}

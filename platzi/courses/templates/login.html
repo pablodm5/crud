@@ -1,0 +1,14 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block nav_sidebar %}
+{% endblock %}
+{% block title %}{% trans "Log in" %}{% endblock %}
+
+
+</form>
+<!-- <p>{% trans "Olvidaste tu contraseña?" %} <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>.</p> -->
+<br>
+<p>{% trans "No eresdasds miembro?" %} <a href="{% url 'registration_register' %}">{% trans "Registrarme" %}</a>.</p>
+</div>
+{% endblock %}

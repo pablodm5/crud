@@ -1,0 +1,23 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% trans "Log in" %}{% endblock %}
+
+{% block content %}
+<div class="col-sm-6 col-sm-offset-3">
+  <div class="social-auth-links text-center">
+  <p><h1>{% trans "Login" %}</h1></p>
+</div>
+
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input class="btn btn-block btn-info" type="submit" value="{% trans 'Iniciar sesión' %}" />
+    <input  type="hidden" name="next" value="{%  url "courses:list"  %}" />
+</form>
+<!-- <p>{% trans "Olvidaste tu contraseña?" %} <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>.</p> -->
+<br>
+<p>{% trans "No eres miembro?" %} <a href="{% url 'registration_register' %}">{% trans "Registrarme" %}</a>.</p>
+</div>
+{% endblock %}

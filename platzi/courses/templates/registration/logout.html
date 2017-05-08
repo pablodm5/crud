@@ -1,0 +1,12 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Logged out" %}{% endblock %}
+
+{% block content %}
+<div class=" text-center">
+<p><h1>{% trans "Sesion finalizada" %}.</h1></p>
+<a href="{% url 'login' %}" class="btn btn-default btn-success btn-lg ">Volver</a>
+</div>
+
+{% endblock %}

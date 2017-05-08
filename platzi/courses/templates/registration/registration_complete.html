@@ -1,0 +1,22 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Activation email sent" %}{% endblock %}
+
+{% block content %}
+<div class=" text-center">
+<p><h1>{% trans "Registro finalizado" %}</h1></p>
+<a href="{% url 'login' %}" class="btn btn-default btn-success  btn-lg ">Volver</a>
+</div>
+{% endblock %}
+
+
+
+{% comment %}
+**registration/registration_complete.html**
+
+Used after successful completion of the registration form. This
+template has no context variables of its own, and should simply inform
+the user that an email containing account-activation information has
+been sent.
+{% endcomment %}
